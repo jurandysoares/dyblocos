@@ -1,0 +1,3 @@
+graph bloco {
+    no[label="D",shape=square];
+}
