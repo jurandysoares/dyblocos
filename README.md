@@ -1,4 +1,4 @@
 # ifblocos
 
-Animações com blocos da logomarca dos Institutos Federais do Brasil.
+Animações com blocos quadrados que representam letras, dígitos, pontuação ou espaço.
 
