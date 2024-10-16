@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-from string import ascii_letters as letras
+from string import \
+    ascii_lowercase as letras_minusculas, \
+    ascii_uppercase as letras_maiusculas
+
 from slugify import slugify
 
 nome_sinal_pontuacao = {
@@ -56,12 +59,19 @@ def main():
             arq_dot.write(conteudo)
     print('Todos os dígitos foram gerados.')
 
-    print('Gerando os letras...')
-    for letra in letras:
+    print('Gerando os letras minúsculas...')
+    for letra in letras_minusculas:
         conteudo = gera_bloco(letra, "square")
         with open(f'bloco-{letra}.dot', mode='w', encoding='utf-8') as arq_dot:
             arq_dot.write(conteudo)
-    print('Todas as letras foram geradas.')
+    print('Todas as letras minúsculas foram geradas.')
+
+    print('Gerando os letras maiúsculas...')
+    for letra in letras_maiusculas:
+        conteudo = gera_bloco(letra, "square")
+        with open(f'bloco-{letra}{letra}.dot', mode='w', encoding='utf-8') as arq_dot:
+            arq_dot.write(conteudo)
+    print('Todas as letras maiúsculas foram geradas.')
 
     print('Gerando sinais de pontuação e espaço...')
     for sinal,nome_sinal in nome_sinal_pontuacao.items():

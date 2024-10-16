@@ -95,8 +95,10 @@ def carrega_blocos():
 
 def forma(caracter: str) -> str:
     assert len(caracter)==1
-    if caracter.isalnum():
+    if caracter.isdigit() or caracter.islower():
         return f'bloco-{caracter}.gif'
+    elif caracter.isupper():
+        return f'bloco-{caracter}{caracter}.gif'
     elif caracter in string.punctuation+' ':
         return f'bloco-{slug_sinal_pontuacao[caracter]}.gif'
     else:
@@ -130,7 +132,18 @@ class Bloco(turtle.Pen):
         self.setheading(270)
         self.forward(distance=distancia)
 
+    def desfaz(self):
+        self.undo()
+
+    def abaixa(self):
+        self.pendown()
+
+    def levanta(self):
+        self.penup()
+
     def __repr__(self) -> str:
         return f'Bloco(caracter="{self._caracter}")'
 
+turtle.title('IFBlocos: Animações com blocos de letras, dígitos e sinais de pontuação')
+turtle.setup(width=800, height=600)
 carrega_blocos()
