@@ -141,9 +141,73 @@ class Bloco(turtle.Pen):
     def levanta(self):
         self.penup()
 
-    def __repr__(self) -> str:
+    def carimba(self):
+        self.stamp()
+
+    def va_para(self, x: int, y: int):
+        self.goto(x, y)
+
+    def limpa(self):
+        self.clear()
+
+    def muda_visibilidade(self):
+        self.hideturtle() if self.isvisible() else self.showturtle()
+
+    def esconde(self):
+        self.hideturtle()
+
+    def exibe(self):
+        self.showturtle()
+
+    def __str__(self) -> str:
         return f'Bloco(caracter="{self._caracter}")'
 
+    def __repr__(self) -> str:
+        return f'Bloco(caracter="{self._caracter}")'
+    
+def desenha_texto(texto: str, pos_x: int = 0, pos_y: int = 0) -> None:
+    for caracter in texto:
+        bloco = Bloco(caracter, pos_x, pos_y)
+        pos_x += 50
+
+def desenha_texto_centralizado(texto: str, pos_y: int = 0) -> None:
+    largura = 50 * len(texto)
+    pos_x = -largura//2
+    desenha_texto(texto, pos_x, pos_y)
+
+def desenha_grade():
+    turtle.speed('fastest')
+    turtle.up()
+    for i in range(-400, 450, 50):
+        turtle.goto(i, 300)
+        turtle.down()
+        turtle.goto(i, -300)
+        turtle.up()
+
+    turtle.pensize(2)
+    turtle.goto(0, -300)
+    turtle.down()
+    turtle.goto(0, 300)
+    turtle.up()
+    turtle.pensize(1)
+
+    for i in range(-300, 350, 50):
+        turtle.goto(-400, i)
+        turtle.down()
+        turtle.goto(400, i)
+        turtle.up()
+
+    turtle.pensize(2)
+    turtle.goto(-400, 0)
+    turtle.down()
+    turtle.goto(400, 0)
+    turtle.up()
+    turtle.pensize(1)
+
+    turtle.speed('normal')
+    turtle.goto(0, 0)
+    turtle.hideturtle()
+
 turtle.title('IFBlocos: Animações com blocos de letras, dígitos e sinais de pontuação')
-turtle.setup(width=800, height=600)
+turtle.setup(width=850, height=650)
 carrega_blocos()
