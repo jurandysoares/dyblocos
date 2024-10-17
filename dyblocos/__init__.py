@@ -1,5 +1,5 @@
 """
-ifblocos: Blocos de caracteres para animações
+dyblocos: Blocos de caracteres para animações
 """
 
 from os import chdir
@@ -208,6 +208,6 @@ def desenha_grade():
     turtle.goto(0, 0)
     turtle.hideturtle()
 
-turtle.title('IFBlocos: Animações com blocos de letras, dígitos e sinais de pontuação')
+turtle.title('dyblocos: Animações com blocos de letras, dígitos e sinais de pontuação')
 turtle.setup(width=850, height=650)
 carrega_blocos()
