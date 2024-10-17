@@ -208,6 +208,8 @@ def desenha_grade():
     turtle.goto(0, 0)
     turtle.hideturtle()
 
-turtle.title('dyblocos: Animações com blocos de letras, dígitos e sinais de pontuação')
-turtle.setup(width=850, height=650)
+tela: turtle.Screen = turtle.Screen()
+tela.title('dyblocos: Animações com blocos de letras, dígitos e sinais de pontuação')
+tela.setup(width=850, height=650)
+
 carrega_blocos()

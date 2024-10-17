@@ -1,13 +1,13 @@
-# Exemplo 01: IFRN
-
-```python
 import dyblocos
+
 I = dyblocos.bloco('I')
 F = dyblocos.Bloco('F')
 R = dyblocos.Bloco('R')
 N = dyblocos.Bloco('N')
-I.esquerda(200)
-F.esquerda(150)
-R.esquerda(100)
-N.esquerda(50)
-```
+
+I.esquerda(100)
+F.esquerda(50)
+R.direita(50)
+N.direita(100)
+
+exit()
